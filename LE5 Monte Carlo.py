@@ -4,28 +4,37 @@ Created on Tue Nov 30 15:17:10 2021
 
 @author: schue
 """
+import numpy
 
-def MonteCarloNormal():
+
+def MonteCarloNormal(mean, std, size):
+    """
+    MonteCarloNormal
+    :param float mean: Mittelwert
+    :param float std: Standardabweichung
+    :param float size: Grösse der Simulation
+    """
     # https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html#numpy.random.Generator.normal
-    import numpy
-    mean = 10
-    std = 5
-    size = 10
     my_generator = numpy.random.default_rng()
     result = my_generator.normal(mean, std, size)
     print(result)
     return result
-    
-result = MonteCarloNormal()
 
-def MonteCarloExponential():
+
+# result = MonteCarloNormal(10, 5, 10)
+
+
+def MonteCarloExponential(scale, size):
+    """
+    MonteCarloExponential
+    :param float scale: Ausfallrate
+    :param float size: Grösse der Simulation
+    """
     # https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.exponential.html#numpy.random.Generator.exponential
-    import numpy
-    scale = 5
-    size = 100
     my_generator = numpy.random.default_rng()
     result = my_generator.exponential(scale, size)
     print(result)
     return result
-    
-# MonteCarloExponential()
+
+
+# result = MonteCarloExponential(5, 100)
